@@ -7,12 +7,12 @@ public class Book extends Product{
     private String title;
     private String category;
     private int numPages;
-    public Book(String isbn, String t, String c, int n, double w, double p, ArrayList<Product> stock){
+    public Book(String isbn, String t, String c, int pn, double w, double p, ArrayList<Product> stock){
         super(w, p, stock);
         this.ISBN = isbn;
         this.title = t;
         this.category = c;
-        this.numPages = numPages;
+        this.numPages = pn;
     }
 
     public String getISBN() {
@@ -26,4 +26,6 @@ public class Book extends Product{
     public String getCategory() {
         return category;
     }
+
+    public int getPageNumber() { return numPages; }
 }

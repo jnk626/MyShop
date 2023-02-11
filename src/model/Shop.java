@@ -13,6 +13,7 @@ public class Shop {
     public void addProduct(Product product){
         items.add(product);
     }
+
     public ArrayList<Product> getItems(){
         return items;
     }

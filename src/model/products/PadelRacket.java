@@ -5,8 +5,7 @@ import java.util.ArrayList;
 public class PadelRacket extends Product {
     private String brand;
     private String type;
-    //solo tre tipi
-    //rotonda, goccia, diamante
+
     public PadelRacket(String b, char t, double w, double p, ArrayList<Product> stock){
         super(w, p, stock);
         this.brand = b;

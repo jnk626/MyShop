@@ -5,6 +5,9 @@ import java.util.ArrayList;
 public abstract class Product {
     protected double weight;
     protected double price;
+    public Product(){
+
+    }
 
     public Product(double w, double p, ArrayList<Product> stock){
         this.weight = w;

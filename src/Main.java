@@ -2,16 +2,17 @@ import model.Shop;
 import model.products.Book;
 import model.products.DVD;
 import model.products.PadelRacket;
+import model.products.RacketType;
 
 public class Main {
     public static void main(String[] args) {
         Shop shop = new Shop();
 
-        PadelRacket smithson = new PadelRacket("Smithson", 'd', 3.5, 49.90, shop.getItems());
-        PadelRacket master = new PadelRacket("Master", 'g', 2.8, 156.50, shop.getItems());
-        PadelRacket viper = new PadelRacket("Viper", 'd', 3.7, 99.90, shop.getItems());
-        PadelRacket slicer = new PadelRacket("Slicer", 'r', 3.2, 89.90, shop.getItems());
-        PadelRacket goldenseries = new PadelRacket("Golden Series", 'g', 2.6, 189.90, shop.getItems());
+        PadelRacket smithson = new PadelRacket("Smithson", RacketType.DIAMOND, 3.5, 49.90, shop.getItems());
+        PadelRacket master = new PadelRacket("Master", RacketType.DROP , 2.8, 156.50, shop.getItems());
+        PadelRacket viper = new PadelRacket("Viper", RacketType.DIAMOND, 3.7, 99.90, shop.getItems());
+        PadelRacket slicer = new PadelRacket("Slicer", RacketType.ROUND, 3.2, 89.90, shop.getItems());
+        PadelRacket goldenseries = new PadelRacket("Golden Series", RacketType.ROUND, 2.6, 189.90, shop.getItems());
 
         Book lotr = new Book("155660", "Lord of the Rings", "Fantasy", 2000, 2.0, 25.00,
                 shop.getItems());
@@ -30,7 +31,7 @@ public class Main {
         System.out.println("Total weight of all products: "+shop.getItemsWeight(shop.getItems())+"kg");
         System.out.println("Most valuable product: "+shop.getMostValuable(shop.getItems()));
         System.out.println("There are "+shop.howManyFantasyBooks(shop.getItems())+" fantasy books available");
-        System.out.println("These are our most expensive padel rackets: "+shop.getExpensiveRackets(shop.getItems()));
+        System.out.println("These are our most expensive drop padel rackets: "+shop.getExpensiveDropRackets(shop.getItems()));
         System.out.println("Thanks for choosing us!");
     }
 }

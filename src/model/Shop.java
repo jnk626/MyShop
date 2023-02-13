@@ -1,9 +1,6 @@
 package model;
 
-import model.products.Book;
-import model.products.DVD;
-import model.products.PadelRacket;
-import model.products.Product;
+import model.products.*;
 
 import java.util.ArrayList;
 
@@ -45,17 +42,18 @@ public class Shop {
     public int howManyFantasyBooks(ArrayList<Product> stock){
         int fantasyN = 0;
         for (Product selected : stock){
-            if(selected instanceof Book && ((Book) selected).getCategory().equals("Fantasy")){
+            if (selected instanceof Book && ((Book) selected).getCategory().equals("Fantasy")){
                     fantasyN += 1;
                 }
             }
         return fantasyN;
     }
 
-    public ArrayList<PadelRacket> getExpensiveRackets(ArrayList<Product> stock) {
+    public ArrayList<PadelRacket> getExpensiveDropRackets(ArrayList<Product> stock) {
         ArrayList<PadelRacket> expensiveRacketList = new ArrayList<>();
         for (Product selected : stock) {
-            if (selected instanceof PadelRacket && selected.getPrice() > 100 && (((PadelRacket) selected).getType().equals("goccia"))){
+            if (selected instanceof PadelRacket && selected.getPrice() > 100 &&
+                    (((PadelRacket) selected).getType() == RacketType.DROP)){
                     expensiveRacketList.add((PadelRacket) selected);
                 }
             }

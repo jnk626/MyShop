@@ -30,7 +30,7 @@ public class Shop {
         return totWeight;
     }
 
-    public String getMostValuable(ArrayList<Product> stock){
+    public Product getMostValuable(ArrayList<Product> stock){
         Product mvp = null;
         double maxPrice = 0;
         for (Product selected : stock) {
@@ -39,44 +39,26 @@ public class Shop {
                 mvp = selected;
             }
         }
-        String mvpClass = String.valueOf(mvp.getClass());
-        if (mvpClass.equals("class model.products.Book")) {
-            Book mvBook = (Book) mvp;
-            return mvBook.getTitle()+" "+mvBook.getPrice();
-        } else if (mvpClass.equals("class model.products.DVD")) {
-            DVD mvDVD = (DVD) mvp;
-            return mvDVD.getTitle()+" "+mvDVD.getPrice();
-        }
-        PadelRacket mvRacket = (PadelRacket) mvp;
-        return mvRacket.getBrand()+" "+mvRacket.getPrice();
+        return mvp;
     }
 
     public int howManyFantasyBooks(ArrayList<Product> stock){
         int fantasyN = 0;
         for (Product selected : stock){
-            String selectedClass = String.valueOf(selected.getClass());
-            if (selectedClass.equals("class model.products.Book")) {
-                Book fantasyBook = (Book) selected;
-                if (fantasyBook.getCategory().equals("Fantasy")) {
+            if(selected instanceof Book && ((Book) selected).getCategory().equals("Fantasy")){
                     fantasyN += 1;
                 }
             }
-        }
         return fantasyN;
     }
 
     public ArrayList<PadelRacket> getExpensiveRackets(ArrayList<Product> stock) {
         ArrayList<PadelRacket> expensiveRacketList = new ArrayList<>();
         for (Product selected : stock) {
-            String selectedClass = String.valueOf(selected.getClass());
-            if (selectedClass.equals("class model.products.PadelRacket")) {
-                PadelRacket expensiveRacket = (PadelRacket) selected;
-                if (expensiveRacket.getPrice() > 100 && expensiveRacket.getType().equals("goccia")) {
-                    expensiveRacketList.add(expensiveRacket);
+            if (selected instanceof PadelRacket && selected.getPrice() > 100 && (((PadelRacket) selected).getType().equals("goccia"))){
+                    expensiveRacketList.add((PadelRacket) selected);
                 }
             }
-
-        }
         return expensiveRacketList;
     }
 }
